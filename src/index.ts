@@ -23,16 +23,19 @@ interface Transformer {
 
 const transformVideoTags = (
   transformer: Transformer,
-  options: PluginOptions,
+  defaultAttributes: PluginOptions,
 ) => {
   const { markdownAST } = transformer
   visit(markdownAST, 'inlineCode', (node) => {
     const value = node.value as string
 
-    const options = matchVideoTag(value)
-    if (options != null) {
+    const videoAttributes = matchVideoTag(value)
+    if (videoAttributes != null) {
       node.type = 'html'
-      node.value = renderVideoTag(options)
+      node.value = renderVideoTag({
+        ...defaultAttributes,
+        ...videoAttributes,
+      })
     }
   })
 }
