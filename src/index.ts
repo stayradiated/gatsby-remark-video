@@ -5,16 +5,20 @@ import matchVideoTag from './match-video-tag'
 import renderVideoTag from './render-video-tag'
 
 export interface PluginOptions {
-  width?: string,
-  height?: string,
-  preload?: string,
-  muted?: string,
-  title?: string,
+  parentTag?: string,
+  parentClass?: string,
+  defaultAttributes: {
+    width?: string,
+    height?: string,
+    preload?: string,
+    muted?: string,
+    title?: string,
 
-  autoplay?: boolean,
-  playsinline?: boolean,
-  controls?: boolean,
-  loop?: boolean,
+    autoplay?: boolean,
+    playsinline?: boolean,
+    controls?: boolean,
+    loop?: boolean,
+  },
 }
 
 interface Transformer {
@@ -23,8 +27,9 @@ interface Transformer {
 
 const transformVideoTags = (
   transformer: Transformer,
-  defaultAttributes: PluginOptions,
+  options: PluginOptions,
 ) => {
+  const { parentTag, parentClass, defaultAttributes } = options
   const { markdownAST } = transformer
   visit(markdownAST, 'inlineCode', (node) => {
     const value = node.value as string
@@ -33,8 +38,12 @@ const transformVideoTags = (
     if (videoAttributes != null) {
       node.type = 'html'
       node.value = renderVideoTag({
-        ...defaultAttributes,
-        ...videoAttributes,
+        parentTag,
+        parentClass,
+        videoAttributes: {
+          ...defaultAttributes,
+          ...videoAttributes,
+        },
       })
     }
   })

@@ -9,7 +9,8 @@ This is a fork of
 
 - You can override the default options (width, height, etc) for each video you
   embed.
-- The video source is provided as an option like any other
+- You can set any attribute on the video tag
+- The video tag is wrapped in a parent div to make it easier to style
 
 **Other differences:**
 
@@ -28,7 +29,11 @@ Add the following in your `gatsby-config.js`
 ```javascript
 {
   resolve: '@stayradiated/gatsby-remark-video',
-  options: {}
+  options: {
+    parentTag: 'div',
+    parentClass: 'video',
+    defaultAttributes: {}
+  }
 }
 ```
 
@@ -74,22 +79,41 @@ You can even escape quotes with backslashes.
 `video({ title = "Short \"demo\"", src = './my_video.mp4' })`
 ```
 
-## Default Options
+## Plugin Options
 
-You can set default options for all videos in `gatsby-config.js`.
+## Default Attributes
+
+You can set default attributes for all video tags in `gatsby-config.js`.
 
 ```javascript
 {
   resolve: '@stayradiated/gatsby-remark-video',
-  ptions: {
-    width: 800,
-    height: 'auto',
-    preload: 'auto',
-    muted: true,
-    autoplay: true,
-    playsinline: true,
-    controls: false,
-    loop: true
+  options: {
+    defaultAttributes: {
+      width: 800,
+      height: 'auto',
+      preload: 'auto',
+      muted: true,
+      autoplay: true,
+      playsinline: true,
+      controls: false,
+      loop: true
+    }
+  }
+}
+```
+
+## Parent Element
+
+By default, all video tags are wrapped in a `<div class="video">`. You can
+customise the tag type and class name.
+
+```javascript
+{
+  resolve: '@stayradiated/gatsby-remark-video',
+  options: {
+    parentTag: 'p',
+    parentClass: 'markdown-video'
   }
 }
 ```
