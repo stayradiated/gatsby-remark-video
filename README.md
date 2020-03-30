@@ -49,6 +49,19 @@ You can also add a title to the video tag by adding it in your markdown
 `video({ title = "Short demo", src = "./my_video.mp4" })`
 ```
 
+All `<video />` tag attributes are supported, and can even be placed on
+multiple lines.
+
+```markdown
+`video({
+  title = "Short demo",
+  src = "./my_video.mp4",
+  width = 500,
+  height = "auto",
+  autoplay = true
+})`
+```
+
 Both single quotes and double quotes are supported.
 
 ```markdown

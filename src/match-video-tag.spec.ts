@@ -80,12 +80,30 @@ test('with title in single quotes', (t) => {
   })
 })
 
-test('with escaped quotes ', (t) => {
+test('with escaped quotes', (t) => {
   const input = `video({ title = "Short \\"demo\\"", src = "./my_video.mp4" })`
   const output = matchVideoTag(input)
 
   t.deepEqual(output, {
     title: 'Short "demo"',
     src: './my_video.mp4',
+  })
+})
+
+test('multiline option', (t) => {
+  const input = `video({
+    title = "Short demo",
+    src = "./my_video.mp4",
+    width = 500,
+    height = "auto",
+    autoplay = true
+  })`
+  const output = matchVideoTag(input)
+  t.deepEqual(output, {
+    title: 'Short demo',
+    src: './my_video.mp4',
+    width: 500,
+    height: 'auto',
+    autoplay: true,
   })
 })

@@ -6,7 +6,8 @@ const matchVideoTag = (tag: string): Record<string, any> => {
   const matches = tag.match(REGEXP_VIDEO)
 
   if (matches) {
-    const configString = matches[1]
+    const configString = matches[1].replace(/\n/g, '')
+
     try {
       const { config } = toml.parse(`config = ${configString}`) as {
         config: Record<string, any>,
