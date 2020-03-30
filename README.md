@@ -27,8 +27,8 @@ Add the following in your `gatsby-config.js`
 
 ```javascript
 {
-	resolve: '@stayradiated/gatsby-remark-video',
-	options: {}
+  resolve: '@stayradiated/gatsby-remark-video',
+  options: {}
 }
 ```
 
