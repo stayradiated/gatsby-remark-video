@@ -1,6 +1,6 @@
 import toml from '@iarna/toml'
 
-const REGEXP_VIDEO = /^\s*video\(({[^}]+})\)\s*$/
+const REGEXP_VIDEO = /^\s*video\(({[^]*})\)\s*$/
 
 const matchVideoTag = (tag: string): Record<string, any> => {
   const matches = tag.match(REGEXP_VIDEO)

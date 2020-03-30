@@ -65,13 +65,13 @@ multiple lines.
 Both single quotes and double quotes are supported.
 
 ```markdown
-`video({title = 'Short "demo"', src = './my_video.mp4' })`
+`video({ title = 'Short "demo"', src = './my_video.mp4' })`
 ```
 
 You can even escape quotes with backslashes.
 
 ```markdown
-`video({title = "Short \"demo\"", src = './my_video.mp4' })`
+`video({ title = "Short \"demo\"", src = './my_video.mp4' })`
 ```
 
 ## Default Options

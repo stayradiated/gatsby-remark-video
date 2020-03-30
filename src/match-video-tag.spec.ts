@@ -107,3 +107,12 @@ test('multiline option', (t) => {
     autoplay: true,
   })
 })
+
+test('text with brackets', (t) => {
+  const input = `video({ title = "{{(([[]]))}}", src = "./my_video.mp4" })`
+  const output = matchVideoTag(input)
+  t.deepEqual(output, {
+    title: '{{(([[]]))}}',
+    src: './my_video.mp4',
+  })
+})
