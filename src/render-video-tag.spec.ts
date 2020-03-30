@@ -8,7 +8,10 @@ test('just with src', (t) => {
       src: './my_video',
     },
   })
-  t.is(html, '<div class="video"><video src="./my_video"></video></div>')
+  t.is(
+    html,
+    '<div class="gatsby-remark-video"><video src="./my_video"></video></div>',
+  )
 })
 
 test('with number, string and boolean options', (t) => {
@@ -22,7 +25,7 @@ test('with number, string and boolean options', (t) => {
   })
   t.is(
     html,
-    '<div class="video"><video src="./my_video" width="800" height="auto" muted></video></div>',
+    '<div class="gatsby-remark-video"><video src="./my_video" width="800" height="auto" muted></video></div>',
   )
 })
 
@@ -33,7 +36,10 @@ test('should ignore false options', (t) => {
       controls: false,
     },
   })
-  t.is(html, '<div class="video"><video src="./my_video"></video></div>')
+  t.is(
+    html,
+    '<div class="gatsby-remark-video"><video src="./my_video"></video></div>',
+  )
 })
 
 test('should ignore undefined and null options', (t) => {
@@ -44,7 +50,10 @@ test('should ignore undefined and null options', (t) => {
       height: undefined,
     },
   })
-  t.is(html, '<div class="video"><video src="./my_video"></video></div>')
+  t.is(
+    html,
+    '<div class="gatsby-remark-video"><video src="./my_video"></video></div>',
+  )
 })
 
 test('custom parent tag and class name', (t) => {

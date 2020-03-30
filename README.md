@@ -31,7 +31,7 @@ Add the following in your `gatsby-config.js`
   resolve: '@stayradiated/gatsby-remark-video',
   options: {
     parentTag: 'div',
-    parentClass: 'video',
+    parentClass: 'gatsby-remark-video',
     defaultAttributes: {}
   }
 }
@@ -81,7 +81,7 @@ You can even escape quotes with backslashes.
 
 ## Plugin Options
 
-## Default Attributes
+### Default Attributes
 
 You can set default attributes for all video tags in `gatsby-config.js`.
 
@@ -103,17 +103,17 @@ You can set default attributes for all video tags in `gatsby-config.js`.
 }
 ```
 
-## Parent Element
+### Parent Element
 
-By default, all video tags are wrapped in a `<div class="video">`. You can
-customise the tag type and class name.
+By default, all video tags are wrapped in a `<div class="gatsby-remark-video">`
+tag. You can customise the tag type and class name.
 
 ```javascript
 {
   resolve: '@stayradiated/gatsby-remark-video',
   options: {
     parentTag: 'p',
-    parentClass: 'markdown-video'
+    parentClass: 'video'
   }
 }
 ```

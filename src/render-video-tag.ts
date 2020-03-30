@@ -5,7 +5,11 @@ interface Options {
 }
 
 const renderVideoTag = (options: Options) => {
-  const { parentTag = 'div', parentClass = 'video', videoAttributes } = options
+  const {
+    parentTag = 'div',
+    parentClass = 'gatsby-remark-video',
+    videoAttributes,
+  } = options
   const attributeList = []
 
   for (const [key, value] of Object.entries(videoAttributes)) {
