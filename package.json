@@ -1,15 +1,16 @@
 {
-  "name": "gatsby-remark-video",
-  "version": "1.2.5",
-  "description": "",
-  "main": "index.js",
+  "name": "@stayradiated/gatsby-remark-video",
+  "version": "2.0.0",
+  "description": "Embed video tags in your gatsby project",
+  "main": "./dist/index.js",
   "scripts": {
-    "bump": "npm version patch -m 'bump %s' && git push origin master && npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pkg-build",
+    "test": "pkg-test",
+    "tidy": "pkg-tidy"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rehat101/gatsby-remark-video"
+    "url": "https://github.com/stayradiated/gatsby-remark-video"
   },
   "keywords": [
     "gatsby",
@@ -17,9 +18,13 @@
     "remark",
     "video"
   ],
-  "author": "Taher",
+  "author": "George Czabania <george@czabania.com>",
   "license": "MIT",
   "dependencies": {
-    "unist-util-visit": "^1.4.0"
+    "@iarna/toml": "2.2.3",
+    "unist-util-visit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@stayradiated/pkg": "4.3.0"
   }
 }
